@@ -1,0 +1,320 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #09090d;
+  color: #f3f0ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #09090d;
+}
+
+button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  color: inherit;
+  padding: 10px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto minmax(280px, 1fr) auto auto;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(220px, 1fr) minmax(260px, 1.6fr);
+  gap: 14px;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(8, 8, 12, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.brand span {
+  display: block;
+  color: #b6a06a;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.brand strong {
+  font-size: 18px;
+}
+
+.timeWeather,
+.statsGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.timeWeather span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ddd3bd;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 70px 1fr 42px;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.meter {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.meter i {
+  display: block;
+  height: 100%;
+  background: #8fb996;
+}
+
+.meter i.danger {
+  background: #c44536;
+}
+
+.viewport {
+  min-height: 0;
+  padding: 0;
+}
+
+.scene {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(9, 9, 13, 0.12), rgba(9, 9, 13, 0.88)),
+    radial-gradient(circle at 20% 20%, rgba(147, 134, 93, 0.25), transparent 32%),
+    #15151b;
+}
+
+.scene-esmeralda {
+  background:
+    linear-gradient(180deg, rgba(12, 5, 12, 0.2), rgba(9, 9, 13, 0.9)),
+    linear-gradient(90deg, #2a0f1d, #111118 45%, #332312);
+}
+
+.scene-costanera {
+  background:
+    linear-gradient(180deg, rgba(10, 15, 18, 0.16), rgba(9, 9, 13, 0.88)),
+    linear-gradient(120deg, #10202a, #1c2524 52%, #3a3329);
+}
+
+.scene-saval,
+.scene-botanico {
+  background:
+    linear-gradient(180deg, rgba(4, 12, 8, 0.2), rgba(9, 9, 13, 0.88)),
+    linear-gradient(120deg, #102418, #1b2b21 50%, #111118);
+}
+
+.scene-zeta {
+  background:
+    linear-gradient(180deg, rgba(18, 12, 5, 0.12), rgba(9, 9, 13, 0.9)),
+    linear-gradient(120deg, #16110d, #292015 50%, #0f0f14);
+}
+
+.weatherLayer {
+  position: absolute;
+  inset: 0;
+  color: rgba(180, 200, 210, 0.25);
+  font-size: 38px;
+  line-height: 1.4;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.andySprite {
+  position: absolute;
+  left: 10%;
+  bottom: 8%;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.mask {
+  width: 108px;
+  height: 150px;
+  border-radius: 42% 42% 48% 48%;
+  background: linear-gradient(160deg, #ece3d4, #8d8177);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
+}
+
+.andySprite span {
+  color: #ddd3bd;
+  letter-spacing: 0.18em;
+}
+
+.locationPanel {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  max-width: 420px;
+}
+
+.locationPanel p {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.locationPanel small {
+  color: #d0c7b7;
+  line-height: 1.5;
+}
+
+.castRail {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  width: min(360px, calc(100% - 36px));
+  gap: 8px;
+}
+
+.castRail button {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 6px 8px;
+  text-align: left;
+  background: rgba(10, 10, 14, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.castRail small {
+  grid-column: 2;
+  color: #c7baa1;
+}
+
+.dialogueBox {
+  min-height: 112px;
+  padding: 16px 18px;
+  background: #111116;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.speaker {
+  margin: 0 0 8px;
+  color: #b6a06a;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.typeLine {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.6s steps(55, end);
+}
+
+.chaosText {
+  display: block;
+  margin-top: 10px;
+  color: #ff6b5f;
+}
+
+.decisionArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: #09090d;
+}
+
+.decisionArea > button,
+.mapButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mapButtons {
+  flex: 1 1 420px;
+  flex-wrap: wrap;
+}
+
+.mapButtons button {
+  padding: 8px 10px;
+}
+
+.chaotic button {
+  animation: shake 0.34s infinite;
+}
+
+.chaotic .decisionArea {
+  background-image:
+    repeating-linear-gradient(35deg, transparent 0 18px, rgba(196, 69, 54, 0.12) 18px 20px);
+}
+
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px) rotate(-0.5deg); }
+  75% { transform: translateX(2px) rotate(0.5deg); }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .app {
+    grid-template-rows: auto minmax(260px, 1fr) auto auto;
+  }
+
+  .locationPanel {
+    left: 14px;
+    top: 14px;
+    right: 14px;
+  }
+
+  .locationPanel p {
+    font-size: 22px;
+  }
+
+  .andySprite {
+    left: 8%;
+    bottom: 28%;
+  }
+
+  .mask {
+    width: 76px;
+    height: 108px;
+  }
+
+  .typeLine {
+    white-space: normal;
+    animation: none;
+  }
+}
